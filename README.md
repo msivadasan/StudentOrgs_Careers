@@ -24,7 +24,10 @@ Description of code: readin_linkedin_final.py
 This code also builds on advice in the <a href="https://www.geeksforgeeks.org/scrape-linkedin-using-selenium-and-beautiful-soup-in-python/"> blogpost </a> by Urvish Mahajan at geeksforgeeks.org. As the comments in the code clarify, converting the html text to a BeautisulSoup object allows for easy parsing of subsections in the html page.
 
 Specifically, I inspected the raw html code carefully, to identify key formatting notation that separates the information of interest. For example:
-* A string "<div class= "pv-text-details__left-panel">" denotes the start of an introduction section, and within that a string starting with "<h1" denotes the  
+* A string "<div class= "pv-text-details__left-panel">" denotes the start of an introduction element, and within that a string starting with "<h1" denotes the subelement with the name
+* All of the key sections are in "profile-cards".  The  
+
+
 
 
 
