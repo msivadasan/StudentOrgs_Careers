@@ -19,8 +19,12 @@ This code builds on the <a href="https://www.geeksforgeeks.org/scrape-linkedin-u
 The specific LinkedIn profile urls is in file links.csv.  The code loads each of the urls, and copies the full-page html source, and collates the pages into one text file (data_1_100.txt).
 
 ---------------------------------------------------------------------------------------------
-Description of code: scrape_linkedin_public_final.py 
+Description of code: readin_linkedin_final.py 
 -
+This code also builds on advice in the <a href="https://www.geeksforgeeks.org/scrape-linkedin-using-selenium-and-beautiful-soup-in-python/"> blogpost </a> by Urvish Mahajan at geeksforgeeks.org. As the comments in the code clarify, converting the html text to a BeautisulSoup object allows for easy parsing of subsections in the html page.
+
+Specifically, I inspected the raw html code carefully, to identify key formatting notation that separates the information of interest. For example:
+* A string "<div class= "pv-text-details__left-panel">" denotes the start of an introduction section, and within that a string starting with "<h1" denotes the  
 
 
 
