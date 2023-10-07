@@ -1,4 +1,4 @@
-# frats_linkedin
+# StudentOrgs_Careers
 Project to collate LinkedIn data and check membership in a list of student organizations. 
 
 This project involved the following steps:
