@@ -27,14 +27,14 @@ Specifically, I inspected the raw html code carefully, to identify key formattin
 * A string "\<div class= "pv-text-details__left-panel">" denotes the start of an introduction element, and within that a string starting with "<h1" denotes the sub-element with the name of the person.
 * All of the key sections are in "profile-cards".  The card elements start with "\<section data-view-name="profile-card">". The sections include: 'About', 'Highlights', 'Activity', 'Experience', 'Education', 'Projects', 'Volunteering', 'Skills', 'Interests', 'People also viewed', 'People you may know', 'You might like'. All sections are not necessarily present in every profile. For example, some people may not have a section for "highlights", and others may be missing 'Education'.
 * For this project, the code collates information on name and description from the introduction section, and information from the 'Experience and 'Education' sections.
-* **Experience information** (cleaned_experience.csv) For each job, we collate the following information:  
+* **Experience information** (cleaned_experience.csv) For each job, I collate the following information:  
   - Serial number (list_id)
   - Name (name) 
   - Title, e.g. "Software Engineer" (jtitle)
   - Employer name, e.g., "Google" (jfirms)
   - Start to end date of job, e.g. "May 2021 to Aug 2022: 4mos"   (jdates)
   - Employment location, e.g., "Mountain View, CA" (jloc)           
-* **Education information** (cleaned_education.csv) For each education element (school), we collate the following information:  
+* **Education information** (cleaned_education.csv) For each education element (school), I collate the following information:  
   - Serial number (list_id)
   - Name (name)
   - School, e.g., "University of Michigan - Stephen M. Ross School of Business" (school)
@@ -53,7 +53,7 @@ The basic code for making the API calls was copied from the proxycurl documentat
 * **Basic information** (proxycurl_data_basicinfo.csv):  
 After examining available fields, I decided to collate the following list of fields:
 ['public_identifier', 'first_name', 'last_name', 'full_name', 'follower_count', 'occupation', 'headline', 'summary', 'country', 'country_full_name', 'city', 'state', 'languages', 'skills', 'gender', 'birth_date', 'industry', 'interests', 'personal_emails', 'personal_numbers'].  In addition, I also read in 'inferred_salary_max' and 'inferred_salary_min'.  Interestingly there is only one inferred salary (max and min) for each person, i.e. it is not specific to each job of the person. 
-* **Experience information** (proxycurl_data_experience.csv): For each job, we get information on the following:  
+* **Experience information** (proxycurl_data_experience.csv): For each job, I get information on the following:  
   - public_identifier
   - starts_at
   - ends_at
@@ -63,7 +63,7 @@ After examining available fields, I decided to collate the following list of fie
   - description
   - location
   - logo_url
-* **Education information** (proxycurl_data_experience.csv): For each job, we get information on the following:
+* **Education information** (proxycurl_data_experience.csv): For each job, I get information on the following:
   - public_identifier
   - starts_at
   - ends_at
