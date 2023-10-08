@@ -16,16 +16,20 @@ Description of code: scrape_linkedin_public_final.py
 -
 This code builds on the <a href="https://www.geeksforgeeks.org/scrape-linkedin-using-selenium-and-beautiful-soup-in-python/"> blogpost </a> by Urvish Mahajan at geeksforgeeks.org, except I only try to access public data from LinkedIn (i.e., the code does not log in to any account, as scraping from accounts is not permitted by LinkedIn). 
 
-The specific LinkedIn profile urls is in file links.csv.  The code loads each of the urls, and copies the full-page html source, and collates the pages into one text file (data_1_100.txt).
+The specific LinkedIn profile urls are in links.csv.  The code loads each of the urls, copies the full-page html source, and collates the pages into one text file (data_1_100.txt).
 
 ---------------------------------------------------------------------------------------------
 Description of code: readin_linkedin_final.py 
 -
-This code also builds on advice in the <a href="https://www.geeksforgeeks.org/scrape-linkedin-using-selenium-and-beautiful-soup-in-python/"> blogpost </a> by Urvish Mahajan at geeksforgeeks.org. As the comments in the code clarify, converting the html text to a BeautisulSoup object allows for easy parsing of subsections in the html page.
+This code also builds on advice in the <a href="https://www.geeksforgeeks.org/scrape-linkedin-using-selenium-and-beautiful-soup-in-python/"> blogpost </a> by Urvish Mahajan at geeksforgeeks.org. As the comments in the code clarify, converting the html text to a BeautifulSoup object allows for easy parsing of subsections in the html page.
 
-Specifically, I inspected the raw html code carefully, to identify key formatting notation that separates the information of interest. For example:
-* A string "<div class= "pv-text-details__left-panel">" denotes the start of an introduction element, and within that a string starting with "<h1" denotes the subelement with the name
-* All of the key sections are in "profile-cards".  The  
+Specifically, I inspected the raw html code carefully, to identify key formatting notation that locates the information of interest. For example:
+* A string "\<div class= "pv-text-details__left-panel">" denotes the start of an introduction element, and within that a string starting with "<h1" denotes the sub-element with the name of the person.
+* All of the key sections are in "profile-cards".  The card elements start with "\<section data-view-name="profile-card">". The sections include: 'About', 'Highlights', 'Activity', 'Experience', 'Education', 'Projects', 'Volunteering', 'Skills', 'Interests', 'People also viewed', 'People you may know', 'You might like'. All sections are not necessarily present in every profile. For example, some people may not have a section for "highlights", and others may be missing 'Education'.
+* For this project, the code collates information on name and description in the introduction section, and information from the 'Experience and 'Education' section.
+* For each job we collate the following information:
+  - Job title
+  -              
 
 
 
