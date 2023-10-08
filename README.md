@@ -6,20 +6,20 @@ This project involved the following steps:
 (1) Collating information on student fraternities and sororities at the University of Michigan (in file orgs_list.csv).
 
 (2) Writing code to parse and collate information from LinkedIn, using two approaches:  
-  (a) Direct download using selenium and Beautiful Soup ([scrape_linkedin_public_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/scrape_linkedin_public_final.py)), and then parsing the page information using beautiful soup commands (readin_linkedin_final.py)
-  (b) Downloading Linkedin information using <a href="https://nubela.co/proxycurl/linkedin" target="_blank">Proxycurl profile scraping API</a> (proxycurl_linkedin_final.py).
+  (a) Direct download using selenium and BeautifulSoup ([scrape_linkedin_public_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/scrape_linkedin_public_final.py)), and then parsing the page information using BeautifulSoup commands ([readin_linkedin_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/readin_linkedin_final.py))
+  (b) Downloading Linkedin information using <a href="https://nubela.co/proxycurl/linkedin" target="_blank">Proxycurl profile scraping API</a> ([proxycurl_linkedin_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/proxycurl_linkedin_final.py)).
 
-(3) Writing code (add_fratindicator_final.py) to create a dummy indicator for membership in a fraternity organization and a variable with the name of the fraternity organization, based on the "activities" variable from the LinkedIn dataset.  I did this for the data created from the direct download approach, but this can easily be adjusted to work with other files.
+(3) Writing code ([add_fratindicator_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/add_fratindicator_final.py)) to create a dummy indicator for membership in a fraternity organization and a variable with the name of the fraternity organization, based on the "activities" variable from the LinkedIn dataset.  I did this for the data created from the direct download approach, but this can easily be adjusted to work with other files.
 
 ---------------------------------------------------------------------------------------------
-Description of code: scrape_linkedin_public_final.py 
+Description of code: [scrape_linkedin_public_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/scrape_linkedin_public_final.py) 
 -
 This code builds on the [blogpost](https://www.geeksforgeeks.org/scrape-linkedin-using-selenium-and-beautiful-soup-in-python) by Urvish Mahajan at geeksforgeeks.org, except I only try to access public data from LinkedIn (i.e., the code does not log in to any account, as scraping from accounts is not permitted by LinkedIn). 
 
 The specific LinkedIn profile urls are in **links.csv**.  The code loads each of the urls, copies the full-page html source, and collates the pages into one text file (data_1_100.txt).
 
 ---------------------------------------------------------------------------------------------
-Description of code: readin_linkedin_final.py 
+Description of code: [readin_linkedin_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/readin_linkedin_final.py) 
 -
 This code also builds on advice in the [blogpost](https://www.geeksforgeeks.org/scrape-linkedin-using-selenium-and-beautiful-soup-in-python) by Urvish Mahajan at geeksforgeeks.org. As the comments in the code clarify, converting the html text to a BeautifulSoup object allows for easy parsing of subsections in the html page.
 
@@ -45,7 +45,7 @@ Specifically, I inspected the raw html code carefully, to identify key formattin
 Both  the experience and education files include a serial number (list_id) and name (name) variable, to allow these to be linked to each other, and to the original **links.csv** file that had the list of urls.
 
 ---------------------------------------------------------------------------------------------
-Description of code: proxycurl_linkedin_final.py.py 
+Description of code: [proxycurl_linkedin_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/proxycurl_linkedin_final.py) 
 -
 To read in LinkedIn data using proxycurl, we need to first get an API key from [the proxycurl website](https://nubela.co/proxycurl/people-api). We are allowed only about 10 calls for free; for additional calls, payment needs to be made as per the pricing listed [here](https://nubela.co/proxycurl/pricing).     
 
@@ -77,6 +77,6 @@ After examining available fields, I decided to collate the following list of fie
   - activities_and_societies
 The public_identifier variable appears to be unique and hence can be used to link the different datasets.
 ---------------------------------------------------------------------------------------------
-Description of code: add_fratindicator_new.py 
+Description of code: [add_fratindicator_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/add_fratindicator_final.py) 
 -
 This code takes a list of fraternities and sororities (collated in step (1) of the project, in file orgs_list.csv), and then compares each of the strings to the string in "activities" in the scraped LinkedIn education file (cleaned_education), to create a dummy variable indicator (dfrat) for whether the "activities" includes any of the organizations in the org_list.csv file. We also retain the last matched fraternity name (fratname).  The resulting augmented csv file is stored as cleaned_education_with_dfrat.csv  
