@@ -6,7 +6,7 @@ This project involved the following steps:
 (1) Collating information on student fraternities and sororities at the University of Michigan (in file orgs_list.csv).
 
 (2) Writing code to parse and collate information from LinkedIn, using two approaches:  
-  (a) Direct download using selenium and BeautifulSoup ([scrape_linkedin_public_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/scrape_linkedin_public_final.py)), and then parsing the page information using BeautifulSoup commands ([readin_linkedin_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/readin_linkedin_final.py))
+  (a) Direct download using selenium and Beautiful Soup ([scrape_linkedin_public_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/scrape_linkedin_public_final.py)), and then parsing the page information using Beautiful Soup commands ([readin_linkedin_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/readin_linkedin_final.py))
   (b) Downloading Linkedin information using <a href="https://nubela.co/proxycurl/linkedin" target="_blank">Proxycurl profile scraping API</a> ([proxycurl_linkedin_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/proxycurl_linkedin_final.py)).
 
 (3) Writing code ([add_fratindicator_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/add_fratindicator_final.py)) to create a dummy indicator for membership in a fraternity organization and a variable with the name of the fraternity organization, based on the "activities" variable from the LinkedIn dataset.  I did this for the data created from the direct download approach, but this can easily be adjusted to work with other files.
@@ -21,7 +21,7 @@ The specific LinkedIn profile urls are in **links.csv**.  The code loads each of
 ---------------------------------------------------------------------------------------------
 Description of code: [readin_linkedin_final.py](https://github.com/msivadasan/StudentOrgs_Careers/blob/main/readin_linkedin_final.py) 
 -
-This code also builds on advice in the [blogpost](https://www.geeksforgeeks.org/scrape-linkedin-using-selenium-and-beautiful-soup-in-python) by Urvish Mahajan at geeksforgeeks.org. As the comments in the code clarify, converting the html text to a BeautifulSoup object allows for easy parsing of subsections in the html page.
+This code also builds on advice in the [blogpost](https://www.geeksforgeeks.org/scrape-linkedin-using-selenium-and-beautiful-soup-in-python) by Urvish Mahajan at geeksforgeeks.org. As the comments in the code clarify, converting the html text to a Beautiful Soup object allows for easy parsing of subsections in the html page.
 
 Specifically, I inspected the raw html code carefully, to identify key formatting notation that locates the information of interest. For example:
 * A string "\<div class= "pv-text-details__left-panel">" denotes the start of an introduction element, and within that a string starting with "<h1" denotes the sub-element with the name of the person.
