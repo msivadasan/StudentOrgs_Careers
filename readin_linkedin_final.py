@@ -57,7 +57,7 @@ with open('data_1_100.txt', encoding='UTF8') as f:
 with open('cleaned_experience.csv', 'w', newline='', encoding='UTF8') as csv_file:
     csv_writer = csv.writer(csv_file)
     #########################################################################
-    #Writing the variable names in first line
+    #Writing the variable names in the first line
     #########################################################################
     pp=["None"]*(2+4)
     pp[0]="list_id" #Essentially serial number on our list of students in data_1_100.txt
@@ -106,7 +106,7 @@ with open('cleaned_experience.csv', 'w', newline='', encoding='UTF8') as csv_fil
 with open('cleaned_education.csv', 'w', newline='', encoding='UTF8') as csv_file:
     csv_writer = csv.writer(csv_file)
     #########################################################################
-    #Writing the variable names in first line
+    #Writing the variable names in the first line
     #########################################################################
     pp=["None"]*(2+4)
     pp[0]="list_id" #Essentially serial number on our list of students in data_1_100.txt
@@ -126,7 +126,7 @@ with open('cleaned_education.csv', 'w', newline='', encoding='UTF8') as csv_file
         keyslist=list(prdict)
         #print(zz, ww[0])
         if 'Education' in keyslist:
-            #Parses Educastion  into a list of separate schools; we can then parse information for each school to read the school, degree, date, and activity.
+            #Parses Education  into a list of separate schools; we can then parse information for each school to read the school, degree, date, and activity.
             edegrees= prdict['Education'].findAll('div', {'class': 'display-flex flex-column full-width align-self-center'})
             for ee in range(0, len(edegrees)):
                 schools= edegrees[ee].find('div', {'class': 'display-flex align-items-center mr1 hoverable-link-text t-bold'})
