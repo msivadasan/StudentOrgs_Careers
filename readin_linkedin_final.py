@@ -109,7 +109,7 @@ with open('cleaned_education.csv', 'w', newline='', encoding='UTF8') as csv_file
     #Writing the variable names in first line
     #########################################################################
     pp=["None"]*(2+4)
-    pp[0]="list_id" #Essentially serial number on our list of students in l_scrapped1_111.txt
+    pp[0]="list_id" #Essentially serial number on our list of students in data_1_100.txt
     pp[1]="name"
     i=2
     for yy in ("school","degree", "date", "activities"):
